@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Python 學習與教學中心</h1>
+        <p class="col-md-8 fs-4 mx-auto">
+            Learning by Teaching. 這是我的個人知識庫，用來紀錄刷題心得與實作專案。
+        </p>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    
+    <div class="col-md-4 mb-4">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>基礎語法</h2>
+            <p>紀錄 Python 的基礎觀念，例如 Decorator, Generator, GIL 等等。</p>
+            <button class="btn btn-outline-light" type="button">建置中...</button>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="h-100 p-5 bg-light border rounded-3 shadow-sm">
+            <h2 class="text-primary"><i class="fas fa-code"></i> LeetCode</h2>
+            <p>這裡存放我的演算法練習與解題筆記。</p>
+            
+            <div class="d-grid gap-2">
+                <a href="/leetcode/add" class="btn btn-primary btn-lg">
+                    <i class="fas fa-plus-circle"></i> 新增題目筆記
+                </a>
+                
+                <a href="/leetcode" class="btn btn-outline-primary">
+                    查看所有筆記
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="h-100 p-5 bg-dark text-white rounded-3">
+            <h2>專案實作</h2>
+            <p>本網站開發日誌、AI 串接實驗與其他 Python 自動化腳本。</p>
+            <a href="/projects" class="btn btn-outline-light">瀏覽專案</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="border-bottom pb-2">最近更新的筆記</h3>
+        <div class="list-group mt-3">
+            {% for post in posts %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ post.title }}</h5>
+                    <small>剛剛</small>
+                </div>
+                <p class="mb-1">{{ post.summary }}</p>
+            </a>
+            {% else %}
+            <div class="alert alert-info">目前首頁沒有顯示特定的精選文章。</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

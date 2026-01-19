@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>新增 LeetCode 筆記</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">題目名稱</label>
+            <input type="text" name="title" class="form-control" required placeholder="例如：1. Two Sum">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">難度</label>
+            <select name="difficulty" class="form-select">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">演算法分類</label>
+            <select name="category" class="form-select">
+                <option value="Array">Array (陣列)</option>
+                <option value="String">String (字串)</option>
+                <option value="Two Pointers">Two Pointers (雙指標)</option>
+                <option value="Sliding Window">Sliding Window (滑動視窗)</option>
+                <option value="Linked List">Linked List (鏈結串列)</option>
+                <option value="Stack/Queue">Stack/Queue (堆疊/隊列)</option>
+                <option value="Tree">Tree (樹)</option>
+                <option value="Graph">Graph (圖論)</option>
+                <option value="DP">Dynamic Programming (動態規劃)</option>
+                <option value="Backtracking">Backtracking (回溯法)</option>
+                <option value="Binary Search">Binary Search (二分搜尋)</option>
+                <option value="Other">Other (其他)</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">題目連結 (選填)</label>
+            <input type="url" name="link" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">你的程式碼 (Python)</label>
+            <textarea name="code" class="form-control font-monospace" rows="5"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">解題思路 / 筆記</label>
+            <textarea name="explanation" class="form-control" rows="5" placeholder="這裡可以寫下你的演算法思路..."></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">解題思路圖 (選填)</label>
+            <input type="file" name="image" class="form-control" accept="image/*">
+            <div class="form-text">支援 jpg, png 格式，手繪圖拍照上傳也可以！</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">儲存筆記</button>
+    </form>
+</div>
+{% endblock %}
